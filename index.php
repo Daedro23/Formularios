@@ -21,7 +21,7 @@ session_start();
 	</head>
 	<body>
 		
-		
+		<br>
 		<strong><center><h1>Lista de Clientes</h1></center></strong>
 		
 		<br>
@@ -36,41 +36,32 @@ session_start();
 	
 	<div class="container">
 		
-	<th><a href="nuevo_cliente.php" class="btn btn-md btn-primary" P align="left">Nuevo Cliente</a></th>	
+	<a href="nuevo_cliente.php" class="btn btn-md btn-primary" P align="left">Nuevo Cliente</a>	
 		
 	<form action="busqueda_cliente.php" method="get" P align="right">
 		<label><input type="text" class="form-control" name="buscar"></label>
 		<input type="submit" class="btn btn-md btn-primary" name="enviando" value="Buscar cliente">
 		</form>	
-	
-			
-	<table class="table table-striped table-inverse">
-	<thead>
-			
-		<tr>
-			
-			<td>ID</td>
-			<td>Nombre</td>
-			<td>Identificacion</td>
-			<td>Telefono</td>
-			<td>Correo</td>
-			<td>Pagina Web</td>
-			<td>Direccion</td>
-			<td>Activo</td>
-			<td>Acciones</td>
-			
-		</tr>
+		<br>
+		
+	<table class="table table-striped" border="2">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Nombre</td>
+				<td>Identificacion</td>
+				<td>Telefono</td>
+				<td>Correo</td>
+				<td>Pagina Web</td>
+				<td>Direccion</td>
+				<td>Activo</td>
+				<td>Acciones</td>
+			</tr>
 		</thead>
 		<tbody>
-			
 	<?php	
 		
-		$bd_host="localhost";
-		$bd_nombre="formulariop";
-		$bd_usuario="root";
-		$bd_contra="";
-		
-		$conexion=mysqli_connect($bd_host,$bd_usuario,$bd_contra,$bd_nombre);
+	include 'conexion.php';
 
 	if(mysqli_connect_errno()) {
 		
@@ -85,8 +76,6 @@ session_start();
 		
 	while ($row = $resultados->fetch_assoc()) {
 	?>		
-			
-	
 		<tr>
 			<td><?php echo $row['id_cliente'];?></td>
 			<td><?php echo $row['nombre'];?></td>
@@ -96,22 +85,17 @@ session_start();
 			<td><?php echo $row['pagina_web'];?></td>
 			<td><?php echo $row['direccion'];?></td>
 			<td><?php echo $row['activo'];?></td>
-			<td><a href="editar_cliente.php?id=<?php echo $row['id_cliente']; ?>">Editar</a></td>
-			<td><a href="Eliminar_datos.php?id=<?php echo $row['id_cliente']; ?>">Borrar</a></td>
+			<td><a class="btn btn-sm btn-warning" href="editar_cliente.php?id=<?php echo $row['id_cliente']; ?>">Editar</a>
+				<a class="btn btn-sm btn-danger" href="Eliminar_datos.php?id=<?php echo $row['id_cliente']; ?>">Borrar</a></td>
 		
 		</tr>
 		
-		<?php
+	<?php
 		}
 	?>
 	
-	
 	</tbody>
-		
-	</table>	
-				
+	</table>		
 	</div>
-		
-		
 	</body>
 </html>

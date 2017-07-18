@@ -3,14 +3,7 @@ session_start();
 $cliente = $_POST;
 
 
-
-$bd_host="localhost";
-	$bd_nombre="formulariop";
-	$bd_usuario="root";
-	$bd_contra="";
-
-
-	$conexion=mysqli_connect($bd_host,$bd_usuario,$bd_contra,$bd_nombre);
+include 'conexion.php';
 
 $sql_insert = 'INSERT INTO clientes (nombre, Identificacion, Telefono, correo, pagina_web, direccion, activo) VALUES (?, ?, ?, ?, ?, ?, ?);';
 
@@ -24,7 +17,7 @@ mysqli_stmt_close($stmt);
 mysqli_close($conexion);
 
 $_SESSION['mensaje'] = 'Cliente creado exitosamente';
-header('Location: index.php' ); // esto hace un redirect a la pagina index.php de nuevo
+header('Location: index.php' ); //redirect 
 ?>
 
 	

@@ -19,31 +19,24 @@
 	<body>
 		<br>
 		<center>
-	<table class="table table-inverse" border="1">
-	<thead>
-		<tr>
-			
-		</tr>	
-	</thead>	
-	<tbody>
-		<tr>
-			<td>ID</td>
-			<td>Nombre</td>
-			<td>Identificacion</td>
-			<td>Telefono</td>
-			<td>Correo</td>
-			<td>Pagina Web</td>
-			<td>Direccion</td>
-			<td>Activo</td>
-		</tr>
+	<div class="container">	
+	<table class="table table-inverse" border="1">	
+		<tbody>
+			<tr>
+				<td>ID</td>
+				<td>Nombre</td>
+				<td>Identificacion</td>
+				<td>Telefono</td>
+				<td>Correo</td>
+				<td>Pagina Web</td>
+				<td>Direccion</td>
+				<td>Activo</td>
+			</tr>
+	</div>
+
 	<?php	
 		$busqueda=$_GET["buscar"];
-		$bd_host="localhost";
-		$bd_nombre="formulariop";
-		$bd_usuario="root";
-		$bd_contra="";
-		
-		$conexion=mysqli_connect($bd_host,$bd_usuario,$bd_contra,$bd_nombre);
+		include 'conexion.php';
 
 	if(mysqli_connect_errno()) {
 		
@@ -59,8 +52,6 @@
 	while ($row = $resultados->fetch_assoc()) {
 	?>		
 			
-	
-		
 		<tr>
 			<td><?php echo $row['id_cliente'];?></td>
 			<td><?php echo $row['nombre'];?></td>
@@ -70,7 +61,6 @@
 			<td><?php echo $row['pagina_web'];?></td>
 			<td><?php echo $row['direccion'];?></td>
 			<td><?php echo $row['activo'];?></td>
-		
 		</tr>
 		
 		<?php
@@ -82,6 +72,7 @@
 	</tbody>	
 	</table>
 	<br>
-	<center><a href="index.php" class="btn btn-sm btn-primary">Volver a la lista</a></center>
+
+	<center><a href="index.php" class="btn btn-md btn-info">Volver a la lista</a></center>
 	</body>
 </html>

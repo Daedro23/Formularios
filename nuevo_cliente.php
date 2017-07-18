@@ -7,7 +7,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="../../favicon.ico">
 
-	<title>Nuevo Cliente</title>
+		<title>Nuevo Cliente</title>
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,13 +16,11 @@
 
 	<body>
 		
-
 		<div class="container">
-			
-
+			<br><br>	
 			<form id="formulario" action="conexion_cliente.php" method="post">
 				<h2 class="form-signin-heading">Nuevo Cliente</h2>
-
+				<br>
 				<label for="Nombre" class="sr-only">Nombre</label>
 				<input type="text" name="Nombre" class="form-control" placeholder="Nombre" required>
 
@@ -41,19 +39,17 @@
 				<label for="Direccion" class="sr-only">Direccion</label>
 				<input type="text" name="Direccion" class="form-control" placeholder="Direccion">
 
-
-				<label for="Activo" class="sr-only">Activo?</label>
 				<select name="Activo" class="form-control">
-					<option value="">Seleccion</option>
+					<option value="" disable select>¿Cliente constaste?</option>
 					<option value="0">No</option> 
 					<option value="1">Si</option> 
 				</select>
 				<br><br>
-
+				<center>
 				<button class="btn btn-lg btn-primary" type="submit">Enviar</button>
-				<button class="btn btn-lg btn-primary" type="reset">Resetear</button> 
-				<a href="index.php" class="btn btn-lg btn-primary">Lista de Clientes</a>
-
+				<button class="btn btn-lg btn-warning" type="reset">Resetear</button> 
+				<a href="index.php" class="btn btn-lg btn-info">Lista de Clientes</a>
+				</center>
 			</form>
 		</div>
 
